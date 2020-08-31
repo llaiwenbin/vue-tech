@@ -1,17 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <router-view></router-view>
   </div>
+   
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+    }
+  },
+  created(){
+    this.$on("hook:mounted",()=>{
+      // console.log('我挂载点东i下');
+    })
+  },
+  mounted(){
+    // console.log(this.$slots);
+  },
+  methods:{
+    testHook(){
+      // console.log('我监听到了子组件的Hook');
+    }
   }
 }
 </script>
