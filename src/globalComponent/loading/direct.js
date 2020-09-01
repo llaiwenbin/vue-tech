@@ -6,6 +6,7 @@ const Constructor = Vue.extend(Component);
 Vue.directive('loading',{
     bind(el,binding){
         console.log('bind');
+        console.log(binding);
         let instance = new Constructor({
             el: document.createElement('div'),
             data: {
@@ -29,7 +30,8 @@ Vue.directive('loading',{
 
             res.$nextTick(()=>{
                 el.removeChild(res.$el);
-                res.$destory();
+                res.$destroy();
+                console.log('我已卸载');
             })
         }
     },

@@ -1,16 +1,24 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
 
 import actions from './action';
 import mutations from './mutations';
 import moduleA from './moduleA'
+
+Vue.use(Vuex)
+
 const state = {
-    num:0
+    num: 0,
+    menu: []
 }
 const getters = {
 
 }
 
 
-const Store = {
+
+
+const store = new Vuex.Store({
     state,
     getters,
     actions,
@@ -18,6 +26,5 @@ const Store = {
     modules:{
         moduleA
     }
-}
-
-export default Store;
+}) ;
+export default store

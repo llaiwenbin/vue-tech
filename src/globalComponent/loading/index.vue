@@ -1,6 +1,6 @@
 
 <template>
-    <transition name="fade" v-if="visible">
+    <transition appear name="fade" v-if="visible">
         <div class="box" :style="{background}">
             <div class="icon-box" :style="{top,color}">
                 <img :src="loadingImgUrl" class="icon" alt="">
@@ -11,7 +11,7 @@
 </template>
 
 <script >
-import icon from './images/loading.gif'
+import icon from './images/loading.gif';
 export default {
     name: 'loading',
     data(){
@@ -36,8 +36,8 @@ export default {
 $top:40%;
 
 .box{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     min-width: 960px;
     min-height: 200px;
     position: fixed;
@@ -59,11 +59,5 @@ $top:40%;
             height: 26px;
         }
     }
-}
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
 }
 </style>
