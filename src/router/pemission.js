@@ -5,6 +5,9 @@ const useVuex = () => import('@/view/useVuex');
 const useSimpleStore = () => import('@/view/useSimpleStore');
 const useGlobalComponent = () => import('@/view/useGlobalComponent');
 const secDialog = () => import('@/view/secDialog');
+const requireManyModule = () => import('@/view/requireManyModule');
+const useMixin = () => import('@/view/useMixin');
+const useMergeStrategies = () => import('@/view/useMergeStrategies');
 const error404 = () => import('@/view/error/404.vue');
 
 //路由需要做限制，最终保底页面为404页面
@@ -21,5 +24,8 @@ export const asyncRouteList = [
     { path: '/useVuex', name: "useVuex", component: useVuex },
     { path: '/useSimpleStore', name: "useSimpleStore", component: useSimpleStore },
     { path: '/useGlobalComponent', name: "useGlobalComponent", component: useGlobalComponent },
-    { path: '/secDialog', name: "secDialog", component: secDialog }
+    { path: '/secDialog', name: "secDialog", component: secDialog },
+    { path: '/requireManyModule', name: "requireManyModule", component: requireManyModule },
+    { path: '/useMixin', name: "useMixin", component: useMixin },
+    { path: '/useMergeStrategies', name: "useMergeStrategies", component: useMergeStrategies },
 ]

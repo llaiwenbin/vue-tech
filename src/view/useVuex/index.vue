@@ -8,6 +8,14 @@
 </template>
 <script>
 import { mapActions,mapGetters } from 'vuex';
+/**
+ * 如果添加了命名空间namespace 那么使用时的方式有
+ *      1.1  mapGetters('moduleA',['addTenGetters'])
+ *           this.addTenGetters
+ *      1.2  mapGetters(['moduleA/addTenGetters']),
+ *           console.log(this['moduleA/addTenGetters']);
+ * 
+ */
 export default ({
     name:'useVuex',
     mounted(){
