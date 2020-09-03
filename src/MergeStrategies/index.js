@@ -11,7 +11,7 @@ class mergePlugin {
         const _this = this;
         this.Interval(function () {
             _this.isOverTime = !_this.isOverTime;
-        })
+        }, 3000)
 
         // 为了Vue链式调用的时候可以直接获取到它的Vue的实例
         Vue.prototype.trigger = this.trigger(Vue);
@@ -22,7 +22,7 @@ class mergePlugin {
         const optMerge = Vue.config.optionMergeStrategies;
 
         optMerge.overTime = optMerge.beforeCreate;
-        optMerge.tooSamll = optMerge.beforeCreate;
+        optMerge.tooSmall = optMerge.beforeCreate;
         optMerge.tooBig = optMerge.beforeCreate;
     }
 
@@ -59,7 +59,7 @@ class mergePlugin {
         console.log('judgeSize');
         const _this = this;
         window.addEventListener("resize", function (res) {
-            res ? _this.tooBig() : _this.tooSmall();
+            res.currentTarget.innerWidth > 600 ? _this.tooBig() : _this.tooSmall();
         }, false);
     }
 
@@ -80,7 +80,7 @@ class mergePlugin {
     }
 
     // 模拟setInterval
-    Interval(func, time = 100) {
+    Interval(func, time = 1000) {
         let _this = this;
         let timer = null;
         timer = setTimeout(function () {
