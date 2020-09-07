@@ -1,46 +1,15 @@
 <template>
-    <label>
-        <span>
-            <input
-                v-if="group"
-                type="checkbox"
-                :disabled="disabled"
-                :value="label"
-                v-model="model"
-                @change="change"
-            />
-            <input
-                v-else
-                type="checkbox"
-                :disabled="disabled"
-                :checked="currentValue"
-                @change="change"
-            />
-        </span>
-        <slot></slot>
-    </label>
-</template> <script>
-import { findNearUpperComponent } from "@/utils.js";
+    <div></div>
+</template>
+
+<script>
 export default {
-    name: "iCheckbox",
-    props: { label: { type: [String, Number, Boolean] } },
+    name: "checkbox-group",
     data() {
-        return {
-            model: [],
-            group: false,
-            parent: null,
-        };
-    },
-    mounted() {
-        this.parent = findNearUpperComponent(this, "iCheckboxGroup");
-        if (this.parent) {
-            this.group = true;
-        }
-        if (this.group) {
-            this.parent.updateModel(true);
-        } else {
-            this.updateModel();
-        }
+        return {};
     },
 };
 </script>
+
+<style lang='scss' scoped>
+</style>
