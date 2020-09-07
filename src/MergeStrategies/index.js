@@ -56,7 +56,6 @@ class mergePlugin {
 
     // 分为一类的钩子
     judgeSize() {
-        console.log('judgeSize');
         const _this = this;
         window.addEventListener("resize", function (res) {
             res.currentTarget.innerWidth > 600 ? _this.tooBig() : _this.tooSmall();
