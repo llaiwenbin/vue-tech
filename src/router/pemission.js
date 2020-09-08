@@ -15,6 +15,7 @@ const communication = () => import('@/view/useComponents/communication/index.vue
 const findComponent = () => import('@/view/useComponents/findComponent');
 
 const useCheckbox = () => import('@/view/useCheckbox');
+const useDisplay = () => import('@/view/useDisplay');
 
 
 const error404 = () => import('@/view/error/404.vue');
@@ -48,6 +49,7 @@ export const asyncRouteList = [
             { path: 'findComponent', name: "findComponent", component: findComponent },
         ]
     },
-    { path: '/useCheckbox', name: "useCheckbox", component: useCheckbox }
+    { path: '/useCheckbox', name: "useCheckbox", component: useCheckbox },
+    { path: '/useDisplay', name: "useDisplay", component: useDisplay }
 
 ]
