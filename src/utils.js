@@ -82,3 +82,15 @@ export const findSbiling = function (context) {
 function Err(content) {
     new Error(`WARN: ${content}`);
 }
+
+//生成32位随机码
+export const random_code = function (len = 32) {
+    const $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV WXYZ1234567890';
+    const maxPos = $chars.length;
+    let str = '';
+    for (let i = 0;
+        i < len;
+        i++) {
+        str += $chars.charAt(Math.floor(Math.random() * maxPos));
+    } return str;
+}
