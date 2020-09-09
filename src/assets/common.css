@@ -85,3 +85,10 @@
 .m_l30{
     margin-left: 30px;
 }
+
+.disFlex{
+    display: flex;
+}
+.Flex{
+    flex: 1;
+}
