@@ -1,28 +1,36 @@
 <template>
-    <Dialog v-bind="$attrs" v-on="$listeners" :visible.sync="isDialogVisible">
-        <template #header>
-            <slot name="header"></slot>
-        </template>
-        <template #content>
-            <slot name="content">
-                <div>第二层content</div>
-                <div>
-                    点击可以获取到第二层组件$attrs:
-                    <button @click="logAttrs">click</button>
-                </div>
+  <Dialog
+    v-bind="$attrs"
+    :visible.sync="isDialogVisible"
+    v-on="$listeners"
+  >
+    <template #header>
+      <slot name="header" />
+    </template>
+    <template #content>
+      <slot name="content">
+        <div>第二层content</div>
+        <div>
+          点击可以获取到第二层组件$attrs:
+          <button @click="logAttrs">
+            click
+          </button>
+        </div>
 
-                <div>
-                    点击可以获取到第二层组件$listeners:
-                    <button @click="logListeners">click</button>
-                </div>
-            </slot>
-        </template>
-        <template #foot>
-            <slot name="foot">
-                <button>第二层foot</button>
-            </slot>
-        </template>
-    </Dialog>
+        <div>
+          点击可以获取到第二层组件$listeners:
+          <button @click="logListeners">
+            click
+          </button>
+        </div>
+      </slot>
+    </template>
+    <template #foot>
+      <slot name="foot">
+        <button>第二层foot</button>
+      </slot>
+    </template>
+  </Dialog>
 </template>
 <script>
 import Dialog from "./index.vue";
@@ -35,11 +43,14 @@ export default {
     //如果为false就只有 isNotProps
     //如果为true就有 isNotProps isPropsInner
     // inheritAttrs: false,
-    name: "secDialog",
+    name: "SecDialog",
+    components: {
+        Dialog,
+    },
+    props: ["visible", "isProps"],
     data() {
         return {};
     },
-    props: ["visible", "isProps"],
     computed: {
         // 由于外部如果使用sync那么只是当前组件（父）和外部组件（祖父）之间沟通，update：visible会在最外层（祖父）监听，emit会在最内层（子）监听。
         // 最内层（子）emit只会通知到当前层（父），所以需要当前层再emit给最外层（祖父）
@@ -67,9 +78,6 @@ export default {
         logListeners() {
             console.log(this.$listeners);
         },
-    },
-    components: {
-        Dialog,
     },
 };
 </script>

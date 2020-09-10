@@ -1,23 +1,28 @@
 <template>
-    <div :class="classes">
-        <label
-            :class="[prefixCls + '-label']"
-            :for="labelFor"
-            :style="labelStyles"
-            v-if="label || $slots.label"
+  <div :class="classes">
+    <label
+      v-if="label || $slots.label"
+      :class="[prefixCls + '-label']"
+      :for="labelFor"
+      :style="labelStyles"
+    >
+      <slot name="label">{{ label }}</slot>
+    </label>
+    <div
+      :class="[prefixCls + '-content']"
+      :style="contentStyles"
+    >
+      <slot />
+      <transition name="fade">
+        <div
+          v-if="validateState === 'error' && showMessage && form.showMessage"
+          :class="[prefixCls + '-error-tip']"
         >
-            <slot name="label">{{ label }}</slot>
-        </label>
-        <div :class="[prefixCls + '-content']" :style="contentStyles">
-            <slot></slot>
-            <transition name="fade">
-                <div
-                    :class="[prefixCls + '-error-tip']"
-                    v-if="validateState === 'error' && showMessage && form.showMessage"
-                >{{ validateMessage }}</div>
-            </transition>
+          {{ validateMessage }}
         </div>
+      </transition>
     </div>
+  </div>
 </template>
 <script>
 import AsyncValidator from "async-validator";
@@ -96,22 +101,6 @@ export default {
             validator: {},
         };
     },
-    watch: {
-        error: {
-            handler(val) {
-                this.validateMessage = val;
-                this.validateState = val ? "error" : "";
-            },
-            immediate: true,
-        },
-        validateStatus(val) {
-            this.validateState = val;
-        },
-        rules() {
-            this.setRules();
-        },
-    },
-    inject: ["form"],
     computed: {
         classes() {
             return [
@@ -165,6 +154,34 @@ export default {
             }
             return style;
         },
+    },
+    watch: {
+        error: {
+            handler(val) {
+                this.validateMessage = val;
+                this.validateState = val ? "error" : "";
+            },
+            immediate: true,
+        },
+        validateStatus(val) {
+            this.validateState = val;
+        },
+        rules() {
+            this.setRules();
+        },
+    },
+    inject: ["form"],
+    mounted() {
+        if (this.prop) {
+            this.dispatch("iForm", "on-form-item-add", this);
+            Object.defineProperty(this, "initialValue", {
+                value: this.fieldValue,
+            });
+            this.setRules();
+        }
+    },
+    beforeDestroy() {
+        this.dispatch("iForm", "on-form-item-remove", this);
     },
     methods: {
         setRules() {
@@ -256,18 +273,6 @@ export default {
             }
             this.validate("change");
         },
-    },
-    mounted() {
-        if (this.prop) {
-            this.dispatch("iForm", "on-form-item-add", this);
-            Object.defineProperty(this, "initialValue", {
-                value: this.fieldValue,
-            });
-            this.setRules();
-        }
-    },
-    beforeDestroy() {
-        this.dispatch("iForm", "on-form-item-remove", this);
     },
 };
 </script>

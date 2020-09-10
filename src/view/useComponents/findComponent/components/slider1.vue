@@ -1,10 +1,10 @@
 <template>
-    <div>
-        slider1
-        <child1 class="m_l10" />
-        <child2 class="m_l10" />
-        <child3 class="m_l10" />
-    </div>
+  <div>
+    slider1
+    <child1 class="m_l10" />
+    <child2 class="m_l10" />
+    <child3 class="m_l10" />
+  </div>
 </template>
 
 <script>
@@ -22,11 +22,11 @@ child.keys().forEach((res) => {
     components[curr.name] = curr;
 });
 export default {
-    name: "slider1",
+    name: "Slider1",
+    components,
     data() {
         return {};
     },
-    components,
     created() {
         //找到 APP 只是父APP不是根APP
         let vm = findNearUpperComponent("App", this);

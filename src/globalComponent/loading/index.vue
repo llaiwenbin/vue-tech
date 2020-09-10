@@ -1,19 +1,33 @@
 
 <template>
-    <transition appear name="fade" v-if="visible">
-        <div class="box" :style="{background}">
-            <div class="icon-box" :style="{top,color}">
-                <img :src="loadingImgUrl" class="icon" alt="">
-                <div>{{text}}</div>
-            </div>
-        </div>
-    </transition>
+  <transition
+    v-if="visible"
+    appear
+    name="fade"
+  >
+    <div
+      class="box"
+      :style="{background}"
+    >
+      <div
+        class="icon-box"
+        :style="{top,color}"
+      >
+        <img
+          :src="loadingImgUrl"
+          class="icon"
+          alt=""
+        >
+        <div>{{ text }}</div>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script >
 import icon from './images/loading.gif';
 export default {
-    name: 'loading',
+    name: 'Loading',
     data(){
         return {
             text:'loading...',

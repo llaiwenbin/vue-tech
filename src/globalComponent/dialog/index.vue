@@ -1,46 +1,55 @@
 <template>
-    <div class="dialog-bg" v-show="visible">
-        <div class="dialog-box">
-            <div class="dialog-box-titile">
-                <slot name="header">
-                    <span>最内层header</span>
-                    <svg
-                        t="1599024123848"
-                        class="icon"
-                        viewBox="0 0 1024 1024"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        p-id="2374"
-                        ne="0.22331568097192012"
-                        width="200"
-                        height="200"
-                        @click="$_cancel"
-                    >
-                        <path
-                            d="M1023.997 114.97 911.408 2.388 516.149 397.629 118.5 0 5.91 112.585l397.649 397.629L7.107 906.648l112.587 112.59 396.454-396.439 395.259 395.249 112.59-112.59L628.738 510.214 1023.997 114.97z"
-                            p-id="2375"
-                        />
-                    </svg>
-                </slot>
-            </div>
-            <div class="dialog-box-content">
-                <slot name="content">最内层content</slot>
-            </div>
-            <div class="dialog-box-foot">
-                <slot name="foot">
-                    <button @click="$_confirm" class="m_r10">确认</button>
-                    <button @click="$_cancel">关闭</button>
-                </slot>
-            </div>
-        </div>
+  <div
+    v-show="visible"
+    class="dialog-bg"
+  >
+    <div class="dialog-box">
+      <div class="dialog-box-titile">
+        <slot name="header">
+          <span>最内层header</span>
+          <svg
+            t="1599024123848"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="2374"
+            ne="0.22331568097192012"
+            width="200"
+            height="200"
+            @click="$_cancel"
+          >
+            <path
+              d="M1023.997 114.97 911.408 2.388 516.149 397.629 118.5 0 5.91 112.585l397.649 397.629L7.107 906.648l112.587 112.59 396.454-396.439 395.259 395.249 112.59-112.59L628.738 510.214 1023.997 114.97z"
+              p-id="2375"
+            />
+          </svg>
+        </slot>
+      </div>
+      <div class="dialog-box-content">
+        <slot name="content">
+          最内层content
+        </slot>
+      </div>
+      <div class="dialog-box-foot">
+        <slot name="foot">
+          <button
+            class="m_r10"
+            @click="$_confirm"
+          >
+            确认
+          </button>
+          <button @click="$_cancel">
+            关闭
+          </button>
+        </slot>
+      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
-    name: "theDialog",
-    data() {
-        return {};
-    },
+    name: "TheDialog",
     props: {
         visible: {
             default: true,
@@ -50,6 +59,9 @@ export default {
             default: "",
             type: String,
         },
+    },
+    data() {
+        return {};
     },
     methods: {
         $_confirm() {

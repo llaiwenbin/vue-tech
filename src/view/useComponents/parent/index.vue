@@ -1,13 +1,15 @@
 <template>
-    <div>
-        <div class="parent">parent</div>
-        <router-view />
+  <div>
+    <div class="parent">
+      parent
     </div>
+    <router-view />
+  </div>
 </template>
 
 <script>
 export default {
-    name: "useComponents",
+    name: "UseComponents",
     data() {
         return {};
     },

@@ -1,21 +1,21 @@
 <template>
-    <div>
-        <slot></slot>
-    </div>
+  <div>
+    <slot />
+  </div>
 </template>
 
 <script>
 import { findAllDownComponent } from "@/utils.js";
 export default {
-    name: "iCheckboxGroup",
-    data() {
-        return {};
-    },
+    name: "ICheckboxGroup",
     props: {
         value: {
             default: () => [],
             type: Array,
         },
+    },
+    data() {
+        return {};
     },
     mounted() {
         this.initModel();

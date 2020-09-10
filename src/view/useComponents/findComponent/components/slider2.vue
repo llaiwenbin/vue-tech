@@ -1,10 +1,10 @@
 <template>
-    <div>slider2</div>
+  <div>slider2</div>
 </template>
 
 <script>
 export default {
-    name: "slider2",
+    name: "Slider2",
     data() {
         return {};
     },

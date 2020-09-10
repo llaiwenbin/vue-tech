@@ -1,7 +1,5 @@
 <template>
-    <div ref="display">
-   
-    </div>     
+  <div ref="display" />     
 </template> <script>
 import Vue from "vue";
 // 在 iView Run ⾥，默认是直接可 以写 iView 组件库的全部组件，并没有额外引⼊，这是因为 Display 所在的⼯程，已经将 iView 安装在了全局，Vue.extend 在构造实例
@@ -20,8 +18,18 @@ export default {
             component: null,
         };
     },
+    watch: {
+        code() {
+            // 当 this.code 更新时，整个过程要重新来⼀次，所以要对 code 进 ⾏ watch 监听
+            this.destroyCode();
+            this.renderCode();
+        },
+    },
     mounted() {
         this.renderCode();
+    },
+    beforeDestroy() {
+        this.destroyCode();
     },
     methods: {
         getSource(source, type) {
@@ -102,16 +110,6 @@ export default {
                 this.component.$destroy();
                 this.component = null;
             }
-        },
-    },
-    beforeDestroy() {
-        this.destroyCode();
-    },
-    watch: {
-        code() {
-            // 当 this.code 更新时，整个过程要重新来⼀次，所以要对 code 进 ⾏ watch 监听
-            this.destroyCode();
-            this.renderCode();
         },
     },
 };

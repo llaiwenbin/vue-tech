@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <slider1 />
-        <slider2 />
-        <slider3 />
-    </div>
+  <div>
+    <slider1 />
+    <slider2 />
+    <slider3 />
+  </div>
 </template>
 
 <script>

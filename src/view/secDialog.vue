@@ -1,24 +1,29 @@
 <template>
-    <div>
-        <button @click="showDialog">打开Dialog</button>
-        <Dialog
-            :visible.sync="visible"
-            @confirm="confirm"
-            @close="close"
-            isProps="isProps"
-            isPropsInner="isPropsInner"
-            isNoProps="isNotProps"
-        >
-            <template #foot>
-                <button>我是最外层的</button>
-            </template>
-        </Dialog>
-    </div>
+  <div>
+    <button @click="showDialog">
+      打开Dialog
+    </button>
+    <Dialog
+      :visible.sync="visible"
+      is-props="isProps"
+      is-props-inner="isPropsInner"
+      is-no-props="isNotProps"
+      @confirm="confirm"
+      @close="close"
+    >
+      <template #foot>
+        <button>我是最外层的</button>
+      </template>
+    </Dialog>
+  </div>
 </template>
 <script>
 import Dialog from "@/globalComponent/dialog/secDialog.vue";
 export default {
-    name: "secDialog",
+    name: "SecDialog",
+    components: {
+        Dialog,
+    },
     data() {
         return {
             visible: false,
@@ -35,9 +40,6 @@ export default {
         close() {
             console.log("最外层取消");
         },
-    },
-    components: {
-        Dialog,
     },
 };
 </script>

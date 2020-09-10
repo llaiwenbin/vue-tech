@@ -1,7 +1,7 @@
 <template>
-    <form>
-        <slot></slot>
-    </form>
+  <form>
+    <slot />
+  </form>
 </template> <script>
 // 先确定基本功能的接口
 // 例如from组件必须有数据和规则
@@ -15,7 +15,7 @@
 // 设计完接口后结合其他组件来完善组件功能
 
 export default {
-    name: "iForm",
+    name: "IForm",
     props: {
         model: { type: Object },
         rules: { type: Object },

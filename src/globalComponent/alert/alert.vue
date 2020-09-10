@@ -1,9 +1,15 @@
 <template>
-    <div class="alert">
-        <div class="alert-main" v-for="item in notices" :key="item.name">
-            <div class="alert-content">{{ item.content }}</div>
-        </div>
+  <div class="alert">
+    <div
+      v-for="item in notices"
+      :key="item.name"
+      class="alert-main"
+    >
+      <div class="alert-content">
+        {{ item.content }}
+      </div>
     </div>
+  </div>
 </template> 
 <script>
 // Alert 组件不同于常规的组件使⽤⽅式，它最终是通过 JS 来调⽤ 的，因此组件不⽤预留 props 和 events 接⼝。

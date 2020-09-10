@@ -2,14 +2,29 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     
-    <slot name="header" :row="row"></slot>
-    <slot name="dynamic" :row="row"></slot>
-    <slot name="aside" :row="row"></slot>
-    <slot name="nav" :row="row"></slot>
-    <slot name="foot"></slot>
-    <slot name="content"></slot>
-    <slot name="content1"></slot>
-    <slot name="content2" :row="row"></slot>
+    <slot
+      name="header"
+      :row="row"
+    />
+    <slot
+      name="dynamic"
+      :row="row"
+    />
+    <slot
+      name="aside"
+      :row="row"
+    />
+    <slot
+      name="nav"
+      :row="row"
+    />
+    <slot name="foot" />
+    <slot name="content" />
+    <slot name="content1" />
+    <slot
+      name="content2"
+      :row="row"
+    />
     
     <!-- 默认值 -->
     <slot>Submit</slot>

@@ -1,10 +1,10 @@
 <template>
-    <div>我是mouleD</div>
+  <div>我是mouleD</div>
 </template>
 
 <script>
 export default {
-    name: "mouleD",
+    name: "MouleD",
     data() {
         return {};
     },

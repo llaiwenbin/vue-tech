@@ -1,5 +1,5 @@
 <template>
-    <div>useMixins</div>
+  <div>useMixins</div>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ const mixin2 = {
     },
 };
 export default {
-    name: "useMixin",
+    name: "UseMixin",
     mixins: [mixin1, mixin2],
     data() {
         return {};

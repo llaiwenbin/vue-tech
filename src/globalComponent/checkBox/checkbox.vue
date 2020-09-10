@@ -1,23 +1,23 @@
 <template>
-    <label>
-        <input
-            v-if="group"
-            @change="isGroupChange"
-            type="checkbox"
-            :disabled="disable"
-            :value="label"
-            v-model="model"
-        />
-        <span v-else>
-            <input
-                type="checkbox"
-                :disabled="disable"
-                :checked="currentChecked"
-                @change="notGroupChange"
-            />
-        </span>
-        <slot></slot>
-    </label>
+  <label>
+    <input
+      v-if="group"
+      v-model="model"
+      type="checkbox"
+      :disabled="disable"
+      :value="label"
+      @change="isGroupChange"
+    >
+    <span v-else>
+      <input
+        type="checkbox"
+        :disabled="disable"
+        :checked="currentChecked"
+        @change="notGroupChange"
+      >
+    </span>
+    <slot />
+  </label>
 </template>
 
 <script>
@@ -35,13 +35,7 @@
 // 当点击 <slot> ⾥的⽂字时，<input> 选框 也会被触发，否则只有点击那个⼩框才会触发，那样不太容易 选中，影响⽤户体验。
 import { findNearUpperComponent } from "@/utils.js";
 export default {
-    name: "iCheckbox",
-    data() {
-        return {
-            parent: null,
-            model: [],
-        };
-    },
+    name: "ICheckbox",
     props: {
         checked: {
             default: false,
@@ -60,6 +54,21 @@ export default {
             type: [String, Number, Boolean],
         },
     },
+    data() {
+        return {
+            parent: null,
+            model: [],
+        };
+    },
+    computed: {
+        currentChecked() {
+            return this.checked == this.trueValue ? true : false;
+        },
+        group() {
+            return !!this.parent;
+        },
+    },
+    watch: {},
     mounted() {
         this.parent = findNearUpperComponent("iCheckboxGroup", this);
     },
@@ -80,15 +89,6 @@ export default {
             this.parent.updateModel(model);
         },
     },
-    computed: {
-        currentChecked() {
-            return this.checked == this.trueValue ? true : false;
-        },
-        group() {
-            return !!this.parent;
-        },
-    },
-    watch: {},
 };
 </script>
 

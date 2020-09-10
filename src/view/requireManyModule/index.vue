@@ -1,10 +1,10 @@
 <template>
-    <div>
-        <moule-a></moule-a>
-        <moule-b></moule-b>
-        <moule-c></moule-c>
-        <moule-d></moule-d>
-    </div>
+  <div>
+    <moule-a />
+    <moule-b />
+    <moule-c />
+    <moule-d />
+  </div>
 </template>
 
 <script>
@@ -21,13 +21,13 @@ vueContext.keys().forEach((key) => {
 });
 console.log(components);
 export default {
-    name: "useRequireContext",
+    name: "UseRequireContext",
+    components,
     data() {
         return {
             jsContext,
         };
     },
-    components,
     mounted() {},
 };
 </script>

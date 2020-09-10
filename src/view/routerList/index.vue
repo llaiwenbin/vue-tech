@@ -1,21 +1,35 @@
 <template>
-    <ul class="ul">
-        <li class="li" :key="item.name" v-for="item in menu">
-            <div v-if="item.children && item.children.length > 0">
-                <div class="hover">{{ item.name }}</div>
-                <ul class="m_l20">
-                    <li
-                        class="li hover"
-                        v-for="items of item.children"
-                        :key="items.name"
-                        @click="jump(item.path + '/' +items.path)"
-                    >{{items.name}}</li>
-                </ul>
-            </div>
+  <ul class="ul">
+    <li
+      v-for="item in menu"
+      :key="item.name"
+      class="li"
+    >
+      <div v-if="item.children && item.children.length > 0">
+        <div class="hover">
+          {{ item.name }}
+        </div>
+        <ul class="m_l20">
+          <li
+            v-for="items of item.children"
+            :key="items.name"
+            class="li hover"
+            @click="jump(item.path + '/' +items.path)"
+          >
+            {{ items.name }}
+          </li>
+        </ul>
+      </div>
 
-            <div class="hover" @click="jump(item.path)" v-else>{{ item.name }}</div>
-        </li>
-    </ul>
+      <div
+        v-else
+        class="hover"
+        @click="jump(item.path)"
+      >
+        {{ item.name }}
+      </div>
+    </li>
+  </ul>
 </template>
 <script>
 import { mapState } from "vuex";

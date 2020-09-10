@@ -1,10 +1,12 @@
 <template>
-    <div class="m_l20">child1Copy名称为child1 我挂载在child2下</div>
+  <div class="m_l20">
+    child1Copy名称为child1 我挂载在child2下
+  </div>
 </template>
 
 <script>
 export default {
-    name: "child1",
+    name: "Child1",
     data() {
         return {};
     },

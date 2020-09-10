@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <child></child>
-    </div>
+  <div>
+    <child />
+  </div>
 </template>
 
 <script>
 import Child from "./components/child.vue";
 export default {
-    name: "communication",
+    name: "Communication",
+    components: {
+        Child,
+    },
     data() {
         return {
             fooB: {
@@ -23,9 +26,6 @@ export default {
             // provide 和 inject 最常的用法是 1.代替 vuex 2.组件间的传值
             console.log(this.fooB);
         }, 3000);
-    },
-    components: {
-        Child,
     },
     provide() {
         return {

@@ -1,7 +1,11 @@
 <template>
-    <div class="box">
-        <img src="http://cdn.laiwenbin.top/20200901112324.png" class="img" alt />
-    </div>
+  <div class="box">
+    <img
+      src="http://cdn.laiwenbin.top/20200901112324.png"
+      class="img"
+      alt
+    >
+  </div>
 </template>
 <script >
 export default {

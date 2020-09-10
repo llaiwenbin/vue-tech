@@ -1,8 +1,14 @@
 <template>
-    <div class="disFlex box">
-        <textarea class="Flex" v-model="displaySource"></textarea>
-        <IdisPlay class="Flex border" :code="displaySource"></IdisPlay>
-    </div>
+  <div class="disFlex box">
+    <textarea
+      v-model="displaySource"
+      class="Flex"
+    />
+    <IdisPlay
+      class="Flex border"
+      :code="displaySource"
+    />
+  </div>
 </template>
 
 <script>
@@ -31,14 +37,14 @@ let displaySource =
             `;
 import IdisPlay from "@/globalComponent/display/display.vue";
 export default {
-    name: "useDisplay",
+    name: "UseDisplay",
+    components: {
+        IdisPlay,
+    },
     data() {
         return {
             displaySource,
         };
-    },
-    components: {
-        IdisPlay,
     },
 };
 </script>

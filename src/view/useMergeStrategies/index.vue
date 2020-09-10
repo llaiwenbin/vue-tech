@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <div>打开控制台，修改页面大小，查看控制台</div>
-        <div>可以去main页面查看原理~</div>
-    </div>
+  <div>
+    <div>打开控制台，修改页面大小，查看控制台</div>
+    <div>可以去main页面查看原理~</div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "useMergeStrategies",
+    name: "UseMergeStrategies",
     data() {
         return {};
     },

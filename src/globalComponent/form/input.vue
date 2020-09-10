@@ -1,9 +1,14 @@
 <template>
-    <input type="text" :value="currentValue" @input="handleInput" @blur="handleBlur" />
+  <input
+    type="text"
+    :value="currentValue"
+    @input="handleInput"
+    @blur="handleBlur"
+  >
 </template> <script>
 import Emitter from "../../mixins/emitter.js";
 export default {
-    name: "iInput",
+    name: "IInput",
     mixins: [Emitter],
     props: { value: { type: String, default: "" } },
     data() {

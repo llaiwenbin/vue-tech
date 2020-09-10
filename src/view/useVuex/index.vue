@@ -1,10 +1,15 @@
 <template>
-    <div>
-        <button @click="increment">Mutations-type</button>
-        <button @click="testModuleGetter">Module Getters</button>
-        <button @click="testModuleMutations">Module Mutations</button>
-    </div>
-    
+  <div>
+    <button @click="increment">
+      Mutations-type
+    </button>
+    <button @click="testModuleGetter">
+      Module Getters
+    </button>
+    <button @click="testModuleMutations">
+      Module Mutations
+    </button>
+  </div>
 </template>
 <script>
 import { mapActions,mapGetters } from 'vuex';
@@ -17,7 +22,7 @@ import { mapActions,mapGetters } from 'vuex';
  * 
  */
 export default ({
-    name:'useVuex',
+    name:'UseVuex',
     mounted(){
         this.increment('6666');
     },

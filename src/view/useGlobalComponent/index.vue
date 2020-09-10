@@ -1,18 +1,22 @@
 <template>
-    <div>
-        <div v-loading="showLoading">113313</div>
-        <button
-            @click="toggleShow"
-            style="position:absolute"
-        >{{showLoading ? 'showLoading': 'hideLoading'}}</button>
+  <div>
+    <div v-loading="showLoading">
+      113313
     </div>
+    <button
+      style="position:absolute"
+      @click="toggleShow"
+    >
+      {{ showLoading ? 'showLoading': 'hideLoading' }}
+    </button>
+  </div>
 </template>
 
 <script>
 import "@/globalComponent/loading/direct.js";
 
 export default {
-    name: "useGlobalComponent",
+    name: "UseGlobalComponent",
     data() {
         return {
             showLoading: false,

@@ -1,10 +1,10 @@
 <template>
-    <div></div>
+  <div />
 </template>
 
 <script>
 export default {
-    name: "child",
+    name: "Child",
     inject: ["parent", "foo"],
     mounted() {
         console.log(this.foo);

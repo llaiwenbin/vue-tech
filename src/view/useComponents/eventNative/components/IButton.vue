@@ -1,7 +1,7 @@
 <template>
-    <button @click="handleClick">
-        <slot></slot>
-    </button>
+  <button @click="handleClick">
+    <slot />
+  </button>
 </template> <script>
 export default {
     methods: {
