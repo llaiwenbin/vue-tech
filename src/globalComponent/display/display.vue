@@ -1,5 +1,7 @@
 <template>
-    <div ref="display"></div>
+    <div ref="display">
+   
+    </div>     
 </template> <script>
 import Vue from "vue";
 // 在 iView Run ⾥，默认是直接可 以写 iView 组件库的全部组件，并没有额外引⼊，这是因为 Display 所在的⼯程，已经将 iView 安装在了全局，Vue.extend 在构造实例
@@ -76,6 +78,7 @@ export default {
                 const jsContent = new Function(this.js)();
                 jsContent.template = this.html;
                 const newComponent = Vue.extend(jsContent);
+
                 this.component = new newComponent().$mount();
 
                 this.$refs.display.appendChild(this.component.$el);
