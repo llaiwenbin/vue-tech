@@ -33,7 +33,7 @@
 
 // <input>、<slot> 都是包裹在⼀个 <label> 元素内的，这 样做的好处是
 // 当点击 <slot> ⾥的⽂字时，<input> 选框 也会被触发，否则只有点击那个⼩框才会触发，那样不太容易 选中，影响⽤户体验。
-import { findNearUpperComponent } from "@/utils.js";
+import { findNearUpperComponent } from "@/utils";
 export default {
     name: "ICheckbox",
     props: {

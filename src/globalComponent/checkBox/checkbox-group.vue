@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { findAllDownComponent } from "@/utils.js";
+import { findAllDownComponent } from "@/utils";
 export default {
     name: "ICheckboxGroup",
     props: {

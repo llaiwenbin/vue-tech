@@ -14,7 +14,7 @@ import {
     findNearDownComponent,
     findAllDownComponent,
     findSbiling,
-} from "@/utils.js";
+} from "@/utils";
 const child = require.context("./children", false, /child\d?.vue$/);
 let components = {};
 child.keys().forEach((res) => {
