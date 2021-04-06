@@ -1,19 +1,20 @@
-
 export default {
+    template: `
+      <div>
+        <span class="count">{{ count }}</span>
+        <button @click="increment">Increment</button>
+      </div>
+    `,
+
     data() {
-        return { show: false }
-    },
-    render: (h) => {
-        let childNode;
-        if (this.show) {
-            childNode = h('p', '内容 1');
-        } else {
-            childNode = h('p', '内容 2');
+        return {
+            count: 0
         }
-        return h('div', {
-            attrs: { id: 'main' },
-            class: { container: true },
-            style: { color: 'red' }
-        }, [childNode]);
+    },
+
+    methods: {
+        increment() {
+            this.count++
+        }
     }
 }

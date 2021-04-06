@@ -8,7 +8,7 @@ function getMessageInstance() {
 }
 
 function notice({ duration = 1.5, content = '' }) {
-    // content 只能是字符串，如果要显示⾃定义的内容，除 了⽤ v-html 指令，也能⽤ Functional Render
+    // content 只能是字符串，如果要显示⾃定义的内容，除了⽤ v-html 指令，也能⽤ Functional Render
     let instance = getMessageInstance();
     return instance.add({ content: content, duration: duration });
 }
